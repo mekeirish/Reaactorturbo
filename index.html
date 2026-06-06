@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -188,9 +187,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="icon.png">
 
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="./manifest.json">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#4b6cb7">
-<link rel="apple-touch-icon" href="icon.png"></head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon.png">
+</head>
 <body>
 <div class="card">
     <h1>⚛️ LB Reaactor <button class="dark-toggle" id="darkModeToggle">🌙 Dark</button></h1>
@@ -199,10 +202,10 @@
             <svg viewBox="0 0 24 24"><rect x="9" y="3" width="10" height="18" rx="2" ry="2"></rect><path d="M9 7h10M9 11h10M9 15h6M5 3h4v18H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path></svg>
         </button>
         <button id="runPreviewBtn" class="square-btn btn-test-green" title="Tester l'aperçu">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"></polygon></svg>
         </button>
         <button id="exportHtmlBtn" class="square-btn" title="Exporter le fichier HTML complet">
-            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
         </button>
     </div>
     <div class="code-area">
@@ -211,7 +214,7 @@
     </div>
     <div id="previewContainer">
         <button id="internalFullscreenBtn" class="internal-fullscreen-btn" title="Plein écran">
-            <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
         </button>
         <div id="previewArea">Aperçu</div>
     </div>
@@ -223,7 +226,7 @@
     <textarea id="swPreview" class="hidden-textarea"></textarea>
     <div class="repo-line">
         <div id="tokenPasteBtn" class="token-paste-btn" title="Coller le token GitHub">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="15" r="2.5"/><path d="M19 10a7 7 0 0 0-14 0c0 2.5 1.5 4.5 3 6l2 2 2-2c1.5-1.5 3-3.5 3-6z"/><line x1="12" y1="15" x2="12" y2="21"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="15" r="2.5"></circle><path d="M19 10a7 7 0 0 0-14 0c0 2.5 1.5 4.5 3 6l2 2 2-2c1.5-1.5 3-3.5 3-6z"></path><line x1="12" y1="15" x2="12" y2="21"></line></svg>
         </div>
         <div class="repo-field">
             <label>📁 Nom du dépôt / PWA</label>
@@ -245,7 +248,7 @@
     </div>
 </div>
 <div id="globalExitFullscreen" class="global-exit-fullscreen">
-    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 </div>
 <div id="editorModal" class="modal">
     <div class="modal-content">
@@ -514,9 +517,7 @@
         const compiled = compileJSX(processedCode);
         const safeCompiled = compiled.replace(/<\/script>/gi, '<\\/script>');
         return `<!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"><title>PWA App</title><link rel="manifest" href="manifest.json"><script src="https://cdn.tailwindcss.com"><\/script><style>body{margin:0;padding:0;background-color:#030712;font-family:system-ui;min-height:100vh;display:flex;align-items:center;justify-content:center;}#root{width:100%;display:flex;justify-content:center;align-items:center;}</style></head><body><div id="root"></div><script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"><\/script><script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"><\/script><script>${safeCompiled}<\/script><script>if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');<\/script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}</script>
-</body></html>`;
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"><title>PWA App</title><link rel="manifest" href="manifest.json"><script src="https://cdn.tailwindcss.com"><\/script><style>body{margin:0;padding:0;background-color:#030712;font-family:system-ui;min-height:100vh;display:flex;align-items:center;justify-content:center;}#root{width:100%;display:flex;justify-content:center;align-items:center;}</style></head><body><div id="root"></div><script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"><\/script><script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"><\/script><script>${safeCompiled}<\/script><script>if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');<\/script></body></html>`;
     }
 
     async function runInPreview() {
@@ -801,5 +802,15 @@
             registrations.forEach(r => r.unregister());
         });
     }
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker enregistré !'))
+        .catch(err => console.error('Erreur SW :', err));
+    });
+  }
 </script>
 </body></html>
